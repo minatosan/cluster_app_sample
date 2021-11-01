@@ -1,0 +1,17 @@
+%header.header
+  .header-container
+    .header-left
+      .header-left-box
+        =link_to "cluster's album",root_path,class:"header-link"
+    .header-right
+      .header-right__box
+        =link_to "group-search",groups_path,class:"header-link"  
+      .header-right__box
+        =link_to "article-search",articles_path,class:"header-link"  
+      .header-right__box
+        =link_to "user-search",profiles_path,class:"header-link"
+      .header-right__box
+        - if user_signed_in?
+          =link_to "logout",destroy_user_session_path,class:"header-link", method: :delete
+        -else 
+          =link_to "login",new_user_session_path,class:"header-link"

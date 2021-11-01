@@ -1,0 +1,280 @@
+// Place all the styles related to the top_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header{
+  width:100vw;
+  height:50px;
+  background: radial-gradient(800px, #ffebee, #e57373);
+  &-link{
+    line-height:50px;
+    text-decoration:none;
+    color:white;
+    font-family:cursive;
+    font-size: 20px;
+  }
+  &-left{
+    float:left;
+    padding-left:10px;
+  }
+  &-right{
+    position:absolute;
+    right:10px;
+    height:50px; 
+    display:  table-cell;       
+    vertical-align:  middle; 
+    
+    &__box{
+      display:inline-block;
+      position:relative;
+      padding-right: 10px;
+      padding-left:10px;
+    }
+  }
+}
+
+//side-bar
+.side-bar{
+  &-wrapper{
+    width:320px;
+    height:270px;
+    border: 2px solid;
+    float:left;
+  }
+  &-user{
+    
+  }
+  &-contents-box{
+    text-align:center;
+   
+  }
+  &-friend{
+  }
+  &-request{
+    @include side-contents;
+  }
+  &-group{
+  }
+  &-article{
+    @include side-contents;
+    &--link{
+      text-decoration:none;
+      line-height:50px;
+    }
+  }
+  &-new-group{
+    @include side-contents;
+    border-bottom:1px solid;
+  }
+  &-upper{
+    &__box{
+      height:140px;
+      
+    }
+    &__section{
+      display:inline-block;
+      width:48%;
+      vertical-align: top;
+      margin-top:20px;
+      margin-bottom:10px;
+    }
+    &--image{
+      border-radius:50%;
+    }
+    &--avatar{
+      position: relative;
+      left:20px;
+      max-width:100px;
+    }
+    &--center{
+      float:right;
+      text-align: center;
+    }    
+    
+  }
+  &-under{
+    &__box{
+      height:50px;
+      width:200px;
+      text-align:center;   
+    }
+    
+  }
+  
+  &--link{
+    text-decoration:none;
+    color:black;
+  }
+}
+
+#search-input{
+  width:500px;
+  font-size:20px;
+}
+//user-search
+
+.user-search{
+  &-wrapper{
+    width:calc(100vw - 270px);
+    float:right;
+  }
+  &-upper{
+    height:100px;
+    border-bottom:solid 1px;
+    text-align:center;
+  }
+  &-title{
+    padding-top:10px;
+  }
+  &-field{
+    height:20px;
+    font-size:18px;
+    width:calc(100vw - 450px);
+  }
+  &-result{
+   
+  }
+  &-results{
+    display:inline-block;
+    margin-top:20px;
+    max-height:100px;
+    vertical-align: middle;
+    
+    
+  }
+  &-avatar{ 
+    
+  }
+  &-name{
+    margin-left:20px;
+    max-width:140px;
+    width:150px;
+  }
+  &-introduction{
+    margin-left:20px;
+    border: solid 1px; 
+    font-size:16px;
+    width:350px;
+    height:75px;
+    word-wrap: break-word;
+  }
+  &-follow{
+    margin-left:20px;   
+  }
+  &-link{
+    color:white;
+    background-color:aqua;
+    text-decoration:none;
+    width:120px;
+  }
+}
+
+.top-page{
+  &-wrapper{
+    width:100vw;
+    
+    margin:0 auto;
+  }
+  &-contents{
+    text-align:center;
+  }
+  &-upper{
+    background-image:image-url("feature2.jpg");
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+   
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+   
+    background-size: cover;
+    //background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    color:white;
+    height:700px;
+    font-size:22px;
+  }
+  &-title{
+    position:relative;
+    top:300px;
+  }
+  &-name{
+    font-family:cursive;
+    font-size:64px;
+  }
+  &-text{
+    float:right;
+    color:white;
+    font-family:serif;
+    font-size:36px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    position:relative;
+    right:50px;
+  }
+  &-button{
+    width:300px;
+    font-size:24px;
+    height:50px;
+    line-height:50px;
+    background:green;
+    margin:0 auto;
+    border:1px solid;
+    border-radius:8px;
+  }
+  &-guest{
+    text-decoration: none;
+    color:white;
+  }
+  &-under{
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height:300px;
+    &__box{
+      display:inline-block;
+      width:48%;
+    }
+  }
+  &-feature{
+    margin:0 auto;
+   
+    &-contents{
+      text-align:center;
+    }
+    &-title{
+      font-family: cursive;
+      font-size: 64px;
+      position:relative;
+      top:400px;
+      color:white;
+    }
+    &-upper{
+      height:700px;
+      background-image:image-url("feature2.jpg");
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+   
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+      &--text{
+        float:right;
+        color:white;
+        font-family:serif;
+        font-size:36px;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        position:relative;
+        top:100px;
+        right:50px;
+      }
+    }
+    &-center{
+      height:100px;
+      
+    }
+    &-under{
+      height:100px;
+      
+    }
+  }
+}
+

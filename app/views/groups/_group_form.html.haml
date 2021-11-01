@@ -1,0 +1,36 @@
+=form_with(model: @group,local: true,:builder=>CustomFormBuilder) do |f|
+  .group-new-boxs
+    %span.form--label
+      必須
+    =f.label "グループ名",class:"group-new-label"
+    = f.text_field :name,class:"group-new-input",placeholder:"ここにグループ名を入力してください"
+  .group-new-boxs
+    =f.label "紹介文",class:"group-new-label"
+    = f.text_area :text,size:"40x5",class:"group-new-textarea",placeholder:"グループを紹介する文章を記入しよう"
+  - if controller.action_name == "new"
+    %input{name: 'group[profile_ids][]', type: 'hidden', value: "#{ current_user.profile.id }"}
+  .group-new-boxs
+    メンバー 一覧
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label.chat-group-form__label{for: "user-search-field"}メンバーを追加
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input.chat-group-form__input{id: 'user-search-field',placeholder: '追加したいユーザー名を入力してください',type:'text',name:"keyword"}
+        #user-search-result
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label :profile_ids, "メンバー", class: 'chat-group-form__label'
+    .chat-group-form__field--right
+      #chat-group-users
+        - @group.profiles.each do |user|
+          .chat-group-user
+            %input{name: 'group[profile_ids][]', type: 'hidden', value: "#{ user.id }"}
+            %p.chat-group-user__names
+              = user.nickname
+            %p.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
+
+      #member_search_result
+
+
+  =f.submit "送信",class:"group-new-button"

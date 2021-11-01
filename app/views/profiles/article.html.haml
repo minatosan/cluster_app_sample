@@ -1,0 +1,22 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.profile-article-wrapper
+  .profile-article-contents
+    %ul.profile-article-boxs
+      - @article.each do |article|
+        %li.profile-article-box
+          .profile-article-title
+            =link_to "#{article.title}",article_path(article),class:"profile-article-link"
+          .profile-article-picture
+            -if article.article_images.blank?
+              =image_tag("sample1.jpeg",width:"200px",height:"200px",class: "profile-article-image")
+            - else
+              =image_tag(article.article_images.first.picture.url,width:"200px",height:"200px",class: "profile-article-image")
+          .profile-article-under
+            %p.profile-article-introduction
+              -if article.introduction.blank?
+                = "現在、紹介文はありません"
+              - else
+                = article.introduction
+    .profile-article-page
+      = paginate @article

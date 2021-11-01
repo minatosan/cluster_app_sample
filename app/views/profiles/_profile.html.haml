@@ -1,0 +1,24 @@
+.profile-friend-boxs
+  .profile-friend-box
+    .profile-friend-avatar
+      -if profile.avatar.url.nil?
+        =image_tag("sample1.jpeg",height:"150px",width:"150px",class:"profile-friend-image")
+      -else
+        =image_tag(profile.avatar.url,height:"150px",width:"150px",class:"profile-friend-image")
+  .profile-friend-box
+    .profile-friend-right
+      .profile-friend-nickname
+        =link_to profile.nickname,profile_path(profile),class:"profile-friend-link"
+    .profile-friend-right
+      .profile-friend-button
+        -if current_user.profile.following?(profile)
+          =form_with(model:@friend,url: friends_path) do |f|
+            = f.hidden_field :to_user_id,value:"#{profile.id}" 
+            =f.submit "フォロー解除",class:"user-search-link"
+        -else
+          =form_with(model:@friend,url: friends_path) do |f|
+            = f.hidden_field :to_user_id,value:"#{profile.id}" 
+            =f.submit "フォロー",class:"user-search-link"
+    .profile-friend-introduction
+      =profile.text
+

@@ -1,0 +1,16 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.friend-request-wrapper
+  .friend-request-contents
+    .friend-request-box
+      %h2.friend-request-title
+        =icon('fas','address-card fa-lg')
+        あなたは今こちらの方から友達申請を受けています
+      -@friends.each do |friend|
+        .friend-request-boxs
+          .friend-request-section
+            =image_tag(friend.from_user.avatar.url,width:"150px",height:"150px",class:"friend-request-img")
+          .friend-request-section
+            =friend.from_user.nickname
+            = react_component("Modalwindow", {friend: friend, from_user: friend.from_user})
+   

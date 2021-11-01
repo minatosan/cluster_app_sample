@@ -1,0 +1,36 @@
+- if controller.action_name == "edit"
+  #profile-edit-preview
+    -if @profile.avatar.url.present?
+      =image_tag(@profile.avatar.url,height:"150px",width:"150px",class: "profile-edit-img")
+    -else
+      =image_tag("icon_image.jpeg",width:"150px",height:"150px",class: "profile-edit-img")
+- if controller.action_name == "edit"     
+  .profile-edit-avatar
+    -if @profile.avatar.url.present?
+      =f.file_field :avatar,value:@profile.avatar
+    -else
+      =f.file_field :avatar
+  .profile-edit-nickname
+    =f.label "ニックネーム"
+    =f.text_field :nickname,placeholder:@profile.nickname
+  .profile-edit-text
+    =f.label "紹介文"
+    =f.text_area :text,size:"40x4",placeholder:@profile.text
+  .profile-edit-button
+    =f.submit "編集する"
+-else
+  .profile-new-nickname
+    =f.label :nickname
+    = f.text_field :nickname
+  .profile-new-avatar
+    =f.label :avatar
+    = f.file_field :avatar,id:"avatar-img"
+    -if @profile.avatar.present?
+      =image_tag(@profile.avatar.url,id: "avatar-preview",height:"150px",width:"200px")
+    -else
+      =image_tag("sample1.jpeg",id: "avatar-preview")
+  .profile-new-text
+    =f.label :text
+    = f.text_area :text
+  .profile-new-button
+    = f.submit "新規登録",class:"profile-new-submit"

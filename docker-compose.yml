@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: mysql/Dockerfile
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: docker_development
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes" 
+    ports:
+      - "3306:3306" 
+  web: &web_base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db 
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/workdir

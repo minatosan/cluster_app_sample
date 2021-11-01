@@ -1,0 +1,18 @@
+.article-detail-box
+  .article-detail-boxs
+    -if article.article_images.blank?
+      =image_tag("sample1.jpeg",class: "article-picture",width:"100px",height:"100px")
+    -else
+      =image_tag(article.article_images.first.picture.url,class: "article-picture",width:"100px",height:"100px")
+  .article-detail-boxs
+    記事名
+    %br
+    .article-detail-title
+      = link_to article.title,article_path(article)
+  .article-detail-boxs
+    説明文
+    %br
+    -if article.introduction.nil?
+      紹介文なし
+    -else  
+      =article.introduction  

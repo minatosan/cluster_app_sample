@@ -1,0 +1,28 @@
+= render partial: "shared/header"
+.login-wrapper
+  .login-inner
+    .login-inner--title
+      claster's album
+    .login-form
+      = form_with(model:resource, as: resource_name,url: session_path(resource_name)) do |f|
+        .login-form--title 
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス"
+        .login-form--title 
+          = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード"
+        .login-form__button 
+          = f.submit "ログイン"
+      =link_to user_facebook_omniauth_authorize_path, method: :post,class:"login-api" do
+        .login-api__block
+          =icon('fab', 'twitter')
+          Twitterでのログインはこちらから
+      =link_to user_google_oauth2_omniauth_authorize_path, method: :post,class:"login-api" do
+        .login-api__block
+          =icon('fab', 'google')
+          Googleでのログインはこちらから
+    .login-registartion
+      IDはお持ちですか？
+      %br
+      IDを未作成の方は
+      %span.login-registartion--underline
+        =link_to  new_user_registration_path,class:"login-api" do
+          こちらから

@@ -1,0 +1,27 @@
+=render partial:"shared/header"
+=render partial: "shared/side_bar"
+.article-new-wrapper
+  .article-new-contents
+    .article-new-box
+      .article-new-title
+        新規記事作成
+      .article-new-form
+        = form_with(model:@article,local:true,:builder=>CustomFormBuilder) do |f|
+          =render "article-form",{f: f}
+          =f.hidden_field :lat,value:@lat
+          =f.hidden_field :lng,value:@lng
+          //#article_image_box
+          .article-new-preview
+          = f.fields_for :article_images do |ff|
+            .article-new-file-field
+              .article-new-input{"data-index" => "#{ff.index}"}
+                =ff.file_field :picture,class:"article_article_images_attributes_0_picture",id:"article_article_images_attributes_0_picture"
+            //= f.fields_for :article_images do |ff|
+            //=ff.file_field :picture,accept: 'image/jpeg,image/jpg,image/png'
+          .article-new-button
+            = f.submit "送信",class:"article-new-submit"
+
+
+//=f.label(:article_images_attributes_0_picture,class: "label-box",id: "article_image_box") do
+//%p.article-new-image-title
+//ここをクリックするとアップロードできます

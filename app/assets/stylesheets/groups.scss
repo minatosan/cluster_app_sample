@@ -1,0 +1,241 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//groups#index
+
+.group{
+  &-wrapper{
+    height:100vh;
+    width:100vw;
+  }
+  &-contents{
+    width: calc(100vw - 350px);
+    float:right;
+  }
+  &-box{
+    background:white;
+    height:100px;
+    margin:0 auto;
+    max-width:600px;
+    border-bottom:1px solid;
+    list-style:none;
+  }
+  &-boxs{
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    top:25%;
+  }
+  &-name{
+    width:280px;
+  }
+  &-text{
+    width:300px;
+  }
+  &-page{
+    height:50px;
+  }
+  &-map{
+    display:inline-block;
+    vertical-align: top;
+    list-style-type:none;
+  }
+}
+
+//groups#new
+
+.group-new{
+  &-wrapper{
+    
+    height:100vh;
+  }
+  &-contents{
+    margin: 0 auto;
+    max-width:600px;
+    
+  }
+  &-box{
+    background:white;
+    text-align:center;
+    position:relative;
+    top:50px;
+    
+  }
+  &-boxs{
+    padding-top:20px;
+    border-top: 1px solid #ddd;
+    padding-bottom:20px;
+    
+  }
+  &-label{
+    width: 100%;
+  max-width: 248px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+  }
+  &-button{
+    margin-top:20px;
+    font-size:20px;
+    margin-bottom:10px;
+  }
+  &-input{
+    width:300px;
+    font-size:16px;
+  }
+  &-textarea{
+    font-size:16px;
+  }
+  
+}
+
+//group#show
+
+.group-show{
+  &-wrapper{
+    max-height:100vh;
+    max-width:100vw;
+  }
+  &-contents{
+    
+  }
+  &-upper{
+    margin:0 auto;
+    text-align:center;
+  }
+  &-introduction{
+    border:1px solid;
+  }
+  &-center{
+    position:relative;
+    top:100px;
+    left:20px;
+    width:1000px;
+  }
+  &-right{
+    float:right;
+    position:relative;
+    top:-500px;
+    justify-content:top;
+    align-items:top;
+    width:300px;
+    &__box{
+      display:inline-block;
+      float:left;
+      width:40%;
+      background:gray;
+    }
+  }
+}
+
+.group-list-item{
+  margin-top:5px;
+  list-style:none;
+}
+.form--label{
+  border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #5bc8ac;
+  color: #fff;
+  font-size: 14px;
+}
+
+
+.chat-group-form__field {
+  margin-top: 30px;
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .chat-group-form__field--left {
+    float: left;
+    width: 30%;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+
+  .chat-group-form__field--right {
+    float: right;
+    width: 70%;
+  }
+
+  .chat-group-form__label {
+    display: block;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  .chat-group-form__input {
+    float: left;
+    width: 100%;
+    line-height: 30px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+  }
+}
+
+.chat-group-user {
+  padding: 0 15px;
+  line-height: 50px;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .chat-group-user__name {
+    float: left;
+  }
+  .chat-group-user__names{
+    float:left;
+  }
+
+  .chat-group-user__btn {
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+
+    &.chat-group-user__btn--add {
+      color: #38aef0;
+    }
+
+    &.chat-group-user__btn--remove {
+      color: #f05050;
+    }
+  }
+}
+
+.chat-group-form__action-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  background-color: #38aef0;
+  border: 0;
+}
+.chat-group-form__field--right{
+margin-top:30px;
+}
+
+.chat-group-form__field--left{
+margin-top:30px;
+}
+
+.group-edit{
+  &-contents{
+    text-align:center;
+    width: calc(100vw - 350px);
+    float:right;
+  }
+}

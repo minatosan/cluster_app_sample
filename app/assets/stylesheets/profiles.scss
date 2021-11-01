@@ -1,0 +1,406 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile{
+  &-wrapper{
+    margin-top:50px;
+    width:calc(100vw - 350px);
+    height:100vh;
+    float:right;
+    text-align:center;
+  }
+  &-contents{
+  }
+  
+  &-upper{
+    &__box{
+      display:inline-block;
+      max-width:48%;
+      vertical-align: top;
+      margin-top:50px;
+      margin-left:10px;
+    }
+  }
+  &-user{
+    width:48%;
+    display:inline-block;
+    
+  }
+  &-name{
+    font-size:22px;
+    text-align: right;
+  }
+  &-avatar{
+   
+  }
+  &-button{
+    
+    padding-left:10px;
+    text-align:left;
+    font-size:22px;
+  }
+  &-link{
+    padding:3px;
+    color:white;
+    background-color:aqua;
+    text-decoration:none;
+    border:2px solid gray;
+  }
+  &-edit{
+    margin-left:20px;
+    display:inline-block;
+  }
+  &-friends{
+    margin-top:10px;
+  }
+  &-introduction{
+    height:120px;
+    width:450px;
+    margin:0 auto;
+    margin-top:10px;
+    background-color: #fcd98f;
+    border-bottom: solid 6px #df9700;
+    border-radius: 10px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .4);
+    padding: 5px;
+  }
+  &-center{
+    margin-top:50px;
+    position:relative;
+    left: -200px;
+    
+  }
+  &-map{
+    display:inline-block;
+    
+  }
+  &-group{
+    width:300px;
+    height:300px;
+    display:inline-block;
+    vertical-align: top;
+    overflow:scroll;
+    &__box{
+      height: 50px;
+      text-align: center;
+    }
+    
+  }
+  
+}
+.avatar-image{
+  border-radius:50%;
+}
+::-webkit-scrollbar{
+  width: 10px;
+  }
+  ::-webkit-scrollbar-track{
+  background: #fff;
+  border-left: solid 1px #ececec;
+  }
+  ::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 10px;
+  }
+
+//profile-edit
+.profile-edit{
+  &-wrapper{
+    width:100vw;
+    height:100vh;
+    text-align: center;
+    
+  }
+  &-contents{
+    padding-top:50px;
+  }
+  &-box{
+    margin: 0 auto;
+    background-color:white;
+    max-width:500px;
+    padding-bottom:10px;
+  }
+  
+  &-avatar{
+    margin-top:30px;
+    
+  }
+  
+  &-img{
+    border-radius: 50%;
+    margin-top:30px;
+  }
+  &-icon{
+    display:none;
+  }
+  &-nickname{
+    margin-top:30px;
+  }
+  &-introduction{
+    margin-top:30px;
+  }
+  &-button{
+    //margin-topに関しては@includeする
+    margin-top:30px;
+    font-size:16px;
+    
+  }
+}
+
+.profile-show{
+  &-center{
+    display:inline-block;
+  }
+}
+
+.profile-new{
+  &-wrapper{
+    width:100vw;
+    height:100vh;
+    background-color:gray;
+  }
+  &-contents{
+    
+    position:relative;
+    top:100px;
+  }
+  &-box{
+    margin:0 auto;
+    text-align:center;
+    background-color:white;
+    width:500px;
+  }
+  &-title{
+    font-size:24px;
+  }
+  &-form{
+    margin-top:20px;
+  }
+  &-avatar{
+    margin-top:20px;
+  }
+  &-text{
+    margin-top:20px;
+  }
+  &-submit{
+    font-size:16px;
+  }
+}
+
+#avatar-preview{
+  height:150px;
+  width:200px;
+}
+
+.profile-article{
+  &-wrapper{
+
+  }
+  &-contents{
+    width: calc(100vw - 350px);
+    float:right;
+  }
+  &-box{
+   width:45%;
+   
+   display:inline-block;
+   margin-top:10px;
+   margin-left:10px;
+   
+  }
+  &-link{
+    text-decoration: none;
+    color:white;
+  }
+  &-title{
+    padding-left:20px;
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.788953081232493) 50%, rgba(252,176,69,1) 100%);
+    border-radius: 10px;
+  }
+  &-picture{
+    height:220px;
+    width:50%;
+    display:inline-block;
+  }
+  &-under{
+    display:inline-block;
+    width:45%;
+    min-height:60px;
+    vertical-align:top ;
+  }
+  &-image{
+    position:relative;
+    top:5%;
+  }
+  &-introduction{
+    padding-left: 20px;
+    
+  }
+}
+
+.mypage{
+  &-wrapper{
+    
+  }
+  &-contents{
+    margin: 0 auto;
+    text-align:center;
+  }
+  &-avatar{
+    margin-top:30px;
+  }
+  &-name{
+    font-size:20px;
+  }
+  &-comments{
+    width:500px;
+    margin:0 auto;
+  }
+  &-comment{
+    margin-top:20px;
+    border-top:2px ridge;
+
+    &-box{
+      display:inline-block;
+    }
+  }
+}
+
+.profile-friend{
+  &-contents{
+    float:right;
+    width:calc(100% - 350px);
+    text-align:center;
+  }
+  &-title{
+    font-size:24px;
+    text-align:center;
+    right:100px;
+    font-family:'Courier New', Courier, monospace;
+  }
+  &-list{
+    
+    
+  }
+  &-image{
+    border-radius:50%;
+  }
+  &-link{
+    color:white;
+    text-decoration:none;
+  }
+  &-boxs{
+    margin-top:30px;
+    padding-top:20px;
+    padding-left:10px;
+    height:180px;
+    width:700px;
+    background: #000046; /* fallback for old browsers */
+    background: linear-gradient(to right, #000046, #1cb5e0); 
+  }
+  &-box{
+    display:inline-block;
+    vertical-align:top;
+    
+  }
+  &-introduction{
+    width:400px;
+    height:100px;
+    border:1px solid;
+    margin-top:10px;
+    margin-left:10px;
+    background-color:skyblue;
+  }
+  &-text{
+    margin-left:10px;
+  }
+  &-right{
+    display:inline-block;
+    margin-left:10px;
+  }
+}
+
+.friend-request{
+  &-wrapper{
+    float:right;
+    width:calc(100% - 350px);
+    text-align:center;
+  }
+  &-box{
+   
+  }
+  &-section{
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:10px;
+  }
+  &-img{
+    border-radius:50%;
+  }
+}
+.article-group{
+  float:right;
+  //position:absolute;
+  //right:-50px;
+  display:inline-block;
+}
+
+
+.profile-group{
+  &-contents{
+    width: calc(100vw - 350px);
+    float:right;
+  }
+  &-title{
+    
+  }
+  &-boxs{
+    padding-top:20px;
+    height:160px;
+    padding-bottom:10px;
+    border-bottom:2px black;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+  }
+ 
+  &-box{
+    display:inline-block;
+    vertical-align: middle;
+    padding-left:30px;
+    
+  }
+  &-name{
+   
+  }
+  &-introduction{
+    vertical-align: top;
+  }
+  &-text{
+    height:120px;
+    width:300px;
+    border:2px solid;
+  }
+  &-article{
+   
+  }
+}
+
+.album-title{
+  font-family: cursive;
+  font-size:24px;
+}
+
+.modal-avatar{
+  border-radius:50%;
+}
+
+.modal-section{
+  display:inline-block;
+  width:46%;
+  margin-bottom:10px;
+}
+

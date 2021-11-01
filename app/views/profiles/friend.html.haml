@@ -1,0 +1,25 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.profile-friend-wrapper
+  .profile-friend-contents
+    .profile-friend-title
+      フォロー一覧
+    %ul.profile-friend-list
+      - @follow_friends.each do |follow_friend|
+        .profile-friend-boxs
+          .profile-friend-box
+            .profile-friend-avatar
+              =image_tag("#{follow_friend.to_user.avatar.url}",height:"150px",width:"150px",class:"profile-friend-image")
+          .profile-friend-box
+            .profile-friend-right
+              .profile-friend-nickname
+                =link_to("#{follow_friend.to_user.nickname}",profile_path(follow_friend.to_user),class:"profile-friend-link")
+            .profile-friend-right
+              .profile-friend-button
+                = form_with(model: follow_friend,method: :delete) do |f|
+                  =f.submit "友達を解除"
+            .profile-friend-introduction
+              -if follow_friend.to_user.text.blank?
+                紹介文なし
+              -else
+                =follow_friend.to_user.text

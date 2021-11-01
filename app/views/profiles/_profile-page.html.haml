@@ -1,0 +1,45 @@
+.profile-wrapper
+  .profile-contents
+    .profile-upper
+      .profile-upper__box
+        .profile-avatar
+          - if @profile.avatar.url.nil?
+            =image_tag("sample1.jpeg",width:"200px",height:"200px",class:"avatar-image")
+          - else
+            =image_tag(@profile.avatar.url,width:"200px",height:"200px",class:"avatar-image")
+      .profile-upper__box
+        .profile-user
+          .profile-name
+            = @profile.nickname
+        .profile-user
+          -if @profile.id == current_user.profile.id
+            .profile-button
+              =link_to "EDIT",edit_profile_path(@profile),class:"profile-link"
+          - else
+            .profile-button
+              -unless @profile.id == current_user.profile.id
+                -if current_user.profile.following?(@profile)
+                  =form_with(model:@friend,url: friends_path) do |f|
+                    = f.hidden_field :to_user_id,value:"#{@profile.id}" 
+                    =f.submit "友達解除",class:"user-search-link"
+                -else
+                  =form_with(model:@friend,url: friends_path) do |f|
+                    = f.hidden_field :to_user_id,value:"#{@profile.id}" 
+                    =f.submit "友達申請を送る",class:"user-search-link"
+        .profile-show-center
+          =link_to friend_profile_path(@profile) do
+            =icon('fas', 'user-friends')
+            友達リスト
+        .profile-show-center
+          =link_to group_profile_path(@profile) do
+            =icon('fas', 'users')
+            グループリスト
+        .profile-introduction
+          =@profile.text
+    .profile-center
+      .profile-map
+        .album-title
+          ="#{@profile.nickname}のcluster's album"
+        .google_maps
+          = react_component("maptest",{first_article:@first_article,articles: @articles,article_group: @groups})
+

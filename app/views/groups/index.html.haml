@@ -1,0 +1,11 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.group-wrapper
+  .group-contents
+    .group-context
+      .group-search-title
+        グループ検索欄
+        .group-form
+          =form_with(url: search_groups_path,method: :get,local: true) do |f|
+            = f.text_field :name,id:"search-input",placeholder:"ここにグループ名を入力してください"
+            =f.submit "検索する",id:"search-button"

@@ -1,0 +1,9 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.profile-wrapper
+  .profile-contents
+    .profile-search
+      =form_with(url: search_profiles_path,method: :get,local: true) do |f|
+        = f.text_field :nickname,id:"search-input",placeholder:"ここにユーザー名を入力してください"
+        =f.submit "検索する",id:"search-button" 
+    

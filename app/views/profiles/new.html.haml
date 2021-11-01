@@ -1,0 +1,8 @@
+.profile-new-wrapper
+  .profile-new-contents
+    .profile-new-box
+      .profile-new-title
+        プロフィール登録
+      .profile-new-form
+        =form_with(model:@profile,local: true) do |f|
+          =render "profile-form",{f: f}

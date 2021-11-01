@@ -1,0 +1,12 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.profile-edit-wrapper
+  .profile-edit-contents
+    .profile-edit-box
+      .profile-edit-title
+        プロフィール編集画面
+      .profile-edit-form
+        =form_with(model:@profile,local: true) do |f|
+          =render "profile-form",{f: f}
+      .profile-edit-user
+        =link_to "ユーザー編集",edit_user_registration_path(@profile)

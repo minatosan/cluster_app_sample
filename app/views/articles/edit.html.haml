@@ -1,0 +1,40 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+.article-edit-wrapper
+  .article-edit-contents
+    .article-edit-form
+      %h2 編集画面
+      =form_with model: @article,local: true do |f|
+        =render "article-form",{f: f}
+        .article-edit-block
+          .article-new-preview
+            -@article.article_images.each_with_index do |image,num|
+              .img-view
+                .img-section
+                  =image_tag(image.picture.url,width:"150px",height:"150px",class:"preview",data:{index: num})
+                .img-section
+                  .btn-wrapper 
+                    .btn-section
+                      .btn-edit
+                        編集
+                    .btn-section
+                      .btn-delete
+                        削除
+        .article-edit-block
+          = f.fields_for :article_images do |ff|
+            //= ff.label  :picture, class: "label-box", for: "upload-image-#{@article.article_images.length}" do
+            //%p.label-box__text-visible クリックしてファイルをアップロード
+            .article-edit--box
+              .article-new-file-field
+                .article-new-input{"data-index" => "#{ff.index}"}
+                  = ff.file_field :picture, name: "article[article_images_attributes][#{ff.index}][picture]", id: "upload-image-#{ff.index}",class:"upload-image",style:"display:none"
+                  = ff.text_area :introduction,size:"40x4",name: "article[article_images_attributes][#{ff.index}][introduction]", id: "upload-image-#{ff.index}",placeholder:@article.article_images[ff.index].introduction
+                  = ff.check_box :_destroy,style:"display:none"
+          =f.fields_for @article.article_images.build do |ff|
+            .article-edit-file-field
+              .article-edit-input{"data-index"=>"#{@article.article_images.length - 1}"}
+                =ff.file_field :picture,name: "article[article_images_attributes][#{@article.article_images.length - 1}][picture]", id: "upload-image-#{@article.article_images.length - 1}",class:"upload-image"
+        = f.collection_select(:group_id,Group.all,:id,:name)
+        //test用
+        =f.hidden_field :profile_id,value:"#{current_user.profile.id}"
+        =f.submit "編集する"

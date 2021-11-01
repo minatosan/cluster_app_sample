@@ -1,0 +1,25 @@
+= render partial: "top_pages/header"
+.registration-wrapper
+  .registration-inner
+    .registration-form
+      .registration-form--title
+        会員登録をされていない方は会員登録をお願いします
+      .registration-form__left
+        =image_tag("登録画面サンプルその2.jpeg",width:"280px")
+      .registration-form__right
+        = link_to "#", class:"registration-api" do
+          .registration-api--mail
+            = fa_icon "envelope-o", class: "registration-api--icon"
+            メールアドレスで登録する
+        =link_to "twitterでのログインはこちらから",user_facebook_omniauth_authorize_path, method: :post ,class:"registration-api"do
+          .registration-api--twitter
+            = fa_icon "twitter",class:"registration-api--icon"
+            =link_to "twitterでの登録はこちらから",
+        =link_to "#" ,class:"registration-api"do
+          .registration-api--google
+            = fa_stacked_icon "google", base: "square-o",class:"registration-api--icon"
+            Googleでの登録はこちらから
+      .registration-login
+        すでに登録済みの方は
+        %span.registration-login-path
+          = link_to "こちら","#"

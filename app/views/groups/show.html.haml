@@ -1,0 +1,26 @@
+=render partial:"shared/header"
+
+.group-show-wrapper
+  .group-show-contents
+    .group-show-upper
+      グループ名
+      .group-show-title
+        =@group.name
+        =link_to "edit",edit_group_path(@group)
+      .group-show-introduction
+        =@group.text
+      .group-show-register
+        -if @member.present?
+          参加済み
+        -else
+          =form_with(url: register_group_path) do |f|
+            =f.submit "参加する"
+    .group-show-center
+      .group-show-map
+        = react_component("maptest2",{articles: @articles})
+    .group-show-right
+      %ul.group-show-right__box
+        メンバー一覧
+        -@group.members.each do |member|
+          %li.group-show-member
+            =link_to "#{member.profile.nickname}",profile_path(member.profile_id)

@@ -1,0 +1,297 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.article{
+  &-wrapper{
+    
+  }
+  &-contents{
+    width: calc(100vw - 350px);
+   float:right;
+  }
+  &-show{
+    &-wrapper{
+      width:calc(100vw - 350px);
+      float:right;
+      height:100%;
+      text-align:center;
+
+    }
+    &-contents{
+      width:700px;
+      background-color:white;
+      margin:0 auto;
+    }
+    &-under-box{
+      margin-top:50px;
+      width:1250px;
+      position:relative;
+      right:50%;
+      
+    }
+    &-under__block{
+      padding-right:20px;
+      display:inline-block;
+      vertical-align: top;
+     
+    }
+    &-title{
+      display:inline-block;
+    }
+    &-center-box{
+      border:1px solid skyblue;
+      height:200px;
+    }
+    &-form{
+      &__box{
+       display:inline-block;
+      }
+      &--uploader{
+        display:none;
+      }
+    }
+    &-picture{
+      width: calc(700px / 5 - 5px);
+      display:inline-block;
+      margin-top:30px;
+
+    }
+    &-images__box{
+      width:700px;
+      border: 1px solid;
+    }
+    &-comments{
+      margin-top:20px;
+    }
+  }
+}
+
+#comment_text{
+ width:500px; 
+}
+.picture-comment{
+  width:700px;
+  height:120px;
+  margin:0 auto;
+  border:1px solid skyblue;
+  margin-top:30px;
+}
+
+.article-new{
+  &-wrapper{
+   
+  }
+  &-contents{
+    width: calc(100vw - 350px);
+    float:right;
+    text-align:center;
+  }
+  &-form{
+   
+  }
+  &-title{
+    
+  }
+}
+
+.picture-introduction{
+  float:right;
+}
+
+#article_image_box{
+  background:gray;
+  width:250px;
+  position:relative;
+  display: block;
+  border: 1px dashed #ccc;
+  height:250px;
+  cursor: pointer;
+}
+
+#article_article_images_attributes_0_picture{
+  //display:none;
+}
+
+.article-box{
+  margin:0 auto;
+  text-align:center;
+}
+
+.article-boxs{
+  margin:0 auto;
+  text-align:center;
+  
+}
+
+.article-detail{
+  &-box{
+  width:700px;
+  margin: 0 auto;
+  height:150px;
+  border:1px solid;
+  margin-top:10px;
+}
+  &-boxs{
+    display:inline-block;
+    width:30%;
+    vertical-align: middle;
+  }
+}
+.article-picture{
+  padding-top:25px;
+}
+
+#acMenu dt{
+  display:block;
+  width:185px;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  border:#666 1px solid;
+  cursor:pointer;
+  //background:url(images/i_swich.png) 177px -69px no-repeat;
+  padding-right:15px;
+  }
+  #acMenu dd{
+  background:#f2f2f2;
+  width:200px;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  border:#666 1px solid;
+  
+  }
+  #acMenu dt.active{
+  //background:url(images/i_swich.png) 177px 18px no-repeat;
+  }
+
+.article-show-avatar{
+  border-radius:50%;
+}
+
+.article-show-comment{
+  height:150px;
+}
+
+
+.article-show-comment__left{
+  float:left;
+}
+
+.article-show-comment--text{
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  width:70%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+}
+
+
+.article-show-comment--text:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-right: 12px solid #FFF;
+  z-index: 2;
+}
+
+.article-show-comment--text:after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-right: 14px solid #555;
+  z-index: 1;
+}
+
+.img-section{
+  width:150px;
+  display:inline-block;
+}
+
+.img-view{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-wrapper{
+  max-width:300px;
+  margin:0 auto;
+}
+.btn-section{
+  display:inline-block;
+  width:48%;
+}
+
+.article-edit{
+ 
+  &--box{
+    min-height:160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-form{
+    margin-top:20px;
+  }
+  &-title{
+    margin-bottom:30px;
+    font-size:24px;
+  }
+  &-introduction{
+    margin-bottom:30px;
+  }
+  &-text{
+    margin-bottom:30px;
+  }
+}
+
+.article-edit-contents{
+  text-align:center;
+  width: calc(100vw - 350px);
+  float:right;
+}
+
+.article-edit-block{
+  display:inline-block;
+  width:40%;
+  vertical-align:middle;
+  position:relative;
+}
+
+.article-new-file-field{
+  
+}
+
+#article_title{
+  font-size:24px;
+}
+
+#article_introduction{
+  font-size:18px;
+}
+
+.form-tag{
+  background-color:red;
+  font-size:16px;
+  color:white;
+  border-radius:3px;
+  padding:3px;
+}

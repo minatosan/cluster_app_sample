@@ -1,0 +1,36 @@
+.side-bar-wrapper
+  .side-bar-upper
+    .side-bar-upper__box
+      .side-bar-upper__section
+        .side-bar-upper--avatar
+          -if current_user.profile.avatar.url.nil?
+            =image_tag("icon_image.jpeg",width:"100px",height:"100px",class: "side-bar-upper--image")
+          - else
+            =image_tag(current_user.profile.avatar.url,height:"100px",width:"100px",class: "side-bar-upper--image")
+      .side-bar-upper__section
+        .side-bar-user 
+          =link_to current_user.profile.nickname,root_path,class:"side-bar--link"
+          .side-bar-friend 
+            //関連付けを行ったパスを
+            =link_to friend_profile_path(current_user.profile),class:"side-bar--link" do
+              =icon('fas', 'user-friends')
+              友達リスト
+          .side-bar-group  
+            =link_to group_profile_path(current_user),class:"side-bar--link" do
+              =icon('fas', 'users')
+              groupリスト
+      .side-bar-request
+        .side-bar-request__box
+          =link_to friend_request_profile_path(current_user.profile),class:"side-bar--link" do
+            =icon('fas', 'user-plus')
+            友達リクエスト一覧
+      .side-bar-new-group
+        //関連付けを行ったパスを
+        =link_to new_group_path,class:"side-bar--link" do
+          =icon('fas', 'layer-group')
+          グループ作成"
+      .side-bar-article
+        //関連付けを行ったパスを
+        =link_to article_profile_path(current_user) ,class:"side-bar--link" do
+          =icon('fas', 'folder-open')
+          記事一覧

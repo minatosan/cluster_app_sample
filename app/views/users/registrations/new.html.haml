@@ -1,0 +1,14 @@
+.registraion-new-wrapper
+  .registarion-new-contents
+    .registration-new-box
+      = form_with(model:resource, as: resource_name,url: registration_path(resource_name)) do |f|
+        .login-form--title 
+          = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "メールアドレス"
+        .login-form--title 
+          = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード"
+        .login-form--title 
+          = f.password_field :password_confirmation, autocomplete: "current-password",placeholder: "確認用パスワード"
+        .login-form__button 
+          = f.submit "新規登録"
+    =link_to "twitterでの登録はこちらから",user_facebook_omniauth_authorize_path, method: :post
+    =link_to "googleでの登録はこちらから",user_google_oauth2_omniauth_authorize_path, method: :post, class:"registration-top-section__item--google"

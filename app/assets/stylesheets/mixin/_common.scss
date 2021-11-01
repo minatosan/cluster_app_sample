@@ -1,0 +1,18 @@
+@mixin side-contents{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  border-top:1px solid;
+  border-right:1px solid;
+  border-left:1px solid;
+}
+
+@mixin red-button {
+  cursor: pointer;
+  color: #fff;
+  background: $button-background-red;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  line-height: 48px;
+}

@@ -1,0 +1,51 @@
+=render partial:"shared/header"
+=render partial: "shared/side_bar"
+.article-show-wrapper
+  .article-show-contents
+    .article-show-upper-box
+      .article-show-title
+        %h3= @article.title
+      .article-show-title
+        =link_to "edit",edit_article_path(@article)
+        =link_to "delete",article_path(@article),method: :delete
+      .article-show-nickname
+        記事の投稿者
+        =@article.profile.nickname
+      .article-show-group
+        所属グループ名
+        -if @article.group.nil?
+          = "グループ未指定"
+        - else
+          =@article.group.name 
+    .article-show-center-box
+      -if @article.text.blank?
+        記事に紹介文が書かれていません
+      -else
+        = @article.text
+    = react_component("preview",{articles: @article.article_images})
+    .article-show-comments
+      コメント欄
+      - @article.comments.each do |article|
+        .article-show-comment
+          .article-show-comment__left
+            =image_tag(article.profile.avatar.url,width:"100px",height:"100px",class: "article-show-avatar")
+            .article-show-comment--user
+              =link_to article.profile.nickname,profile_path(article.profile.id)
+          .article-show-comment--text
+            =article.text
+            -unless article.comment_images.blank?
+              -article.comment_images.each do |image|
+                =image_tag(image.picture.url,width:"10zpx",height:"100px")
+    .article-show-form
+      =form_with(model:@comment,url: comments_path) do |f|
+        .article-show-form__box
+          = f.text_field :text
+          = f.fields_for :comment_images do |ff|
+            %label
+              =icon('fas', 'folder-open') 
+              =ff.file_field :picture,class:"article-show-form--uploader"
+        .article-show-form__box
+          = f.hidden_field :article_id,value:@article.id
+          =f.submit "コメントを送信する"
+        
+                  

@@ -1,0 +1,12 @@
+=render partial: "shared/header"
+=render partial: "shared/side_bar"
+=form_with(url: search_articles_path,method: :get,local: true) do |f|
+  = f.text_field :name,id:"search-input",placeholder:"ここに記事名を入力してください"
+  =f.submit "検索する",id:"search-button"
+-if @article.blank?
+  = "該当する記事がありませんでした"
+%ul.group-list-box
+  = render @article
+.group-page
+  = paginate @article
+        

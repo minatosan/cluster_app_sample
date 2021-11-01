@@ -1,0 +1,19 @@
+.profile-group-boxs
+  .profile-group-box
+    .profile-group__icon
+      -if group.articles.blank?
+        =image_tag("sample1.jpeg",height:"150px",width:"150px")
+      -else
+        =image_tag(group.articles[0].article_images[0].picture.url,height:"150px",width:"150px")
+  .profile-group-box
+    .profile-group_name
+      =link_to  "#{group.name}",group_path(group)
+    .profile-group-text
+      =group.text
+  .profile-group-box
+    登録記事
+    .profile-group-articles
+      -unless group.articles.blank?
+        -group.articles.first(5).each do |article|
+          .profile-group-article
+            =article.title

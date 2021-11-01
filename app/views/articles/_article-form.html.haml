@@ -1,0 +1,26 @@
+.article-edit-title
+  =f.label "題名",class:"form-label"
+  %span.form-tag 必須
+  - if controller.action_name == "new"
+    = f.text_field :title,placeholder:"ここに記事の名前を入力してください"
+  -else
+    = f.text_field :title,placeholder:@article.title
+.article-new-group  
+  -if @groups.blank?
+    - @article.group_id=1
+    =@article.group.name
+  -else
+    = f.collection_select(:group_id,@groups,:id,:name)
+.article-edit-introduction
+  =f.label "紹介文",class:"form-label"
+  - if controller.action_name == "new"
+    =f.text_field :introduction,placeholder:"ここに紹介文を入力してください"
+  -else
+    = f.text_field :introduction,placeholder:@article.introduction
+.article-edit-text
+  =f.label "本文"
+  %span.form-tag 必須
+  - if controller.action_name == "new"
+    =f.text_area :text,size:"80x20",placeholder:"ここに本文を入力してください"
+  - else
+    = f.text_area :text,size:"80x20",placeholder:@article.text

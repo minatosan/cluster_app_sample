@@ -1,0 +1,193 @@
+// login-spot 
+
+.login{
+  &-wrapper{
+    height:100vh;
+    width:100%;
+    background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); 
+  }
+  &-inner{
+    position:relative;
+    top:100px;
+    width:500px;
+    margin: 0px auto;
+    text-align:center;
+    color:white;
+    &--title{
+      font-size:50px;
+      font-family:cursive;
+    }
+  }
+  &-registration{
+    text-align: center;
+    
+  }
+  &-form{
+    position:relative;
+    top:50px;
+    width:300px;
+    text-align:center;
+    margin: 0px auto;
+    &--title{
+      color:white;  
+    }
+    input{
+      font-size:20px;
+      width:calc(100%-10px);      
+    }
+    &__button button{
+      margin-top:20px;
+      background-color:lightblue;
+      color:white;
+      font-size:16px;
+      border-radius:4px;
+    }
+  }
+  &-api{
+    text-decoration: none;
+    &__block{
+      margin-top:20px;
+      color:white;
+      font-size:12px;
+    }
+    &--icon{
+      font-weight:900;
+    }
+  }
+  &-registartion{
+    position:relative;
+    top:70px;
+    font-size:12px;
+    &--underline{
+      text-decoration: underline;
+    }
+  }
+  
+}
+
+
+// registration-spot
+
+.registration{
+  &-wrapper{
+    height:100vh;
+    width:100%;
+    background: linear-gradient(to top, rgba(48, 207, 207, 0.7) 0%, rgba(51, 8, 8, 0.7) 100%),image-url("sample2.jpg");
+    background-repeat:no-repeat;
+    background-size:cover; 
+  }
+  &-inner{
+    position:relative;
+    top:100px;
+    height:420px;
+    max-width:600px;
+    margin: 0px auto;
+    text-align:center;
+    background-color:white;
+   
+  }
+  
+  &-form{
+    position:relative;
+    top:50px;
+    max-width:600px;
+    height:400px;
+    text-align:center;
+    margin: 0px auto;
+    &--title{
+      color:black;  
+      font-size:18px;
+      border-bottom: thin solid lightgray;
+      padding-bottom:10px;
+      font-family:'游ゴシック体';
+    }
+    &__right{
+      width:49%;
+      display:inline-block;
+      position:relative;
+      top:-30px;
+    }
+    &__left{
+      width:49%;
+      display:inline-block;
+      margin-top:30px;
+    }
+   
+    
+  }
+  &-api{
+    font-size:14px;
+    max-width: 343px;
+    text-decoration:none;
+    line-height:40px;
+    &--mail{
+      background-color:magenta;
+      color:white;
+      border-radius:3px;
+    }
+    &--twitter{
+      margin-top:20px;
+      background-color:mediumblue;
+      color:white;
+      border-radius:3px;
+      }
+    &--google{
+      margin-top:20px;
+      background-color:mediumpurple;
+      color:white;
+      border-radius:3px;
+    }
+    &--icon{
+      font-size:12px;
+      font-weight:900;
+    }
+  }
+  &-login{
+    border-top:thin solid lightgray;
+    padding-top:30px;
+  }
+}
+
+
+.top-upper{
+  background-color:gray;
+  height:50px;
+  width:100%;
+  line-height:50px;
+  color:white;
+  &__left{
+    float:left;
+  }
+  &__right{
+    float:right;
+  }
+}
+
+.top-center{
+  height:450px;
+  background-color:lightblue;
+  width:100%;
+}
+
+.top-under{
+  width:100%;
+  height:100px;
+  
+  &__left{
+    width:30%;
+    display:inline-block;
+    vertical-align: top;
+  }
+  &__center{
+    width:30%;
+    display:inline-block;
+    vertical-align: top;
+  }
+  &__right{
+    width:30%;
+    display:inline-block;
+    vertical-align: top;
+  }
+}
+
+
