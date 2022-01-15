@@ -1,3 +1,4 @@
+//インクリメンタルサーチ用
 $(document).on('turbolinks:load',function(){ 
 
   var search_list = $("#user-search-result");

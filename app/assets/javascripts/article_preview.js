@@ -1,9 +1,11 @@
 $(document).on('turbolinks:load',function(){
+    //該当するURLの場合だけ処理を行う
     var re = new RegExp('/articles/new|/articles$');
     if(!re.test(location.pathname)) {
    return;
     }
    let fileIndex = 0
+   //HTMLを作成する関数を定義
    function buildHTML(num){
      var html=`<div class = "img-view">
      <img class="preview" width="150px" height="150px" data-index="${num}">
@@ -17,7 +19,7 @@ $(document).on('turbolinks:load',function(){
    fileIndex += 1
    return html
    }
-    
+  //preview群にIDを定義
    $('.preview').each(function(index, box){
     $(box).attr('id', `preview__${index}`);
   })
@@ -25,7 +27,7 @@ $(document).on('turbolinks:load',function(){
   $('.btn-delete').each(function(index, box){
     $(box).attr('id', `btn-delete__${index}`);
   })
-  //var count = $('.preview-box').length;
+ 
   $(document).on('change', 'input[type="file"]', function() {
     changed_input = $(this).parent().data('index');
     
@@ -64,10 +66,6 @@ $(document).on('turbolinks:load',function(){
     // FileReaderオブジェクトへ属性値(filesプロパティ)を代入する
     reader.readAsDataURL(file);
 
-
-   
-    var img_number =$(".article-new-input").length;
-
     
   })
   $(document).on('click', '.btn-delete', function() {
@@ -92,12 +90,3 @@ $(document).on('turbolinks:load',function(){
     }
   });
 });
-
-//if (img = $(`img[data-index="${changed_input}"]`)[0]){
-  //reader.onload = function(e) {
-    // img_view内のimgタグのsrcプロパティへ、読み込みが完了した画像を入れ込む
-    //$(".img-view").find(`.preview[data-index=${changed_input}]`).attr('src', e.target.result);
-  //};
-
-  // FileReaderオブジェクトへ属性値(filesプロパティ)を代入する
-  //reader.readAsDataURL(file);

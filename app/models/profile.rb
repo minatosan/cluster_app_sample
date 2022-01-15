@@ -16,19 +16,19 @@ class Profile < ApplicationRecord
   validates :nickname,presence: true
   validates :text,presence: true
 
-
+  #フォローしているかの確認
   def  following?(other_user)
       self.follow_friends.find_by(to_user_id: other_user)
   end
-
+  #友達登録
   def follow(other_user)
     self.follow_friends.find_or_create_by(to_user_id: other_user.id)
   end
-
+  
   def friend?(other_user)
     self.follow_friends.find_by(to_user_id: other_user,request: true)
   end
-
+  #フレンドを削除
   def unfollow(other_user)
     self.follow_friends.find_by(to_user_id: other_user.id)
   end

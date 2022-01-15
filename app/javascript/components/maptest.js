@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, Map, Marker,InfoWindow} from 'google-maps-react';
 import { iconPath } from "../packs/assets.js.erb";
 import  Geocode from "react-geocode";
-//require('dotenv').config();
 
+//TOPページ用のmap
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
+    //マーカーのクリックを定義
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    //マーカーを定義
     this.displayMarkers = this.displayMarkers.bind(this);
     this.groupset= this.groupset.bind(this);
     this.onGroupMarker= this.onGroupMarker.bind(this);

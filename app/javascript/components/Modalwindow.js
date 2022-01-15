@@ -4,7 +4,8 @@ import axios from "axios";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
+//モーダルウインドゥのサイズを定義
+//友達承認画面でモーダルウィンドウを使用
 const customStyles = {
   content : {
     top                   : '50%',
@@ -16,7 +17,7 @@ const customStyles = {
  }
 };
 
-Modal.setAppElement('.friend-request-boxs') //任意のアプリを設定する　create-react-appなら#root
+Modal.setAppElement('.friend-request-boxs') 
 class ModalWindow extends React.Component {
   constructor() {
     super();

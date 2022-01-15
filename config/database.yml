@@ -13,8 +13,11 @@ default: &default
 
 development:
   <<: *default
-  database: docker_development
+  #database: cluster_app_sample_development
+
+  #docker-compose用database
   host: db
+  database: docker_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
